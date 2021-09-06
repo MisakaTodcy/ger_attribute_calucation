@@ -1,0 +1,64 @@
+import tkinter as tk
+import tkinter.messagebox
+import openpyxl
+class ger_Calculation():
+    def __init__(self,master = None):
+        self.master = master
+    def main_windows(self):
+        tk.Button(ger,text="粉宠",bg='pink',width=20,height=1,font=("Microsoft YaHei",20),command=self.pink_ger).place(x=300,y=200)
+        #.place()方法是将其放置于某个点,点击按钮后跳转到"pink_ger"函数，进入粉宠界面
+        tk.Button(ger,text="合体宠",bg='red',width=20,height=1,font=("Microsoft YaHei",20),command=self.red_ger).place(x=300,y=250)
+        #点击按钮后跳转到"pink_ger"函数，进入合体宠界面
+
+    def pink_ger(self):
+        pinkstar_ger = tk.Toplevel(ger)
+        #点击粉宠按钮后，弹出另外一个界面
+        pinkstar_ger.title("粉宠属性计算")
+        pinkstar_ger.geometry('920x680')
+        tk.Button(pinkstar_ger,text="精灵基础属性",bg="green",width=20,height=1,font=("KaiTi", 20),command=self.ger_base).place(x=300,y=200)
+        #基础属性计算,点击按钮进入精灵属性界面，输入精灵ID即可得出精灵基础属性
+        tk.Button(pinkstar_ger,text="精灵资质",bg="blue",width=20,height=1,font=("KaiTi", 20),command=self.ger_intellgence_attribute).place(x=300,y=240)
+        #精灵资质
+
+    def red_ger(self):
+        pass
+
+    def ger_base(self):
+        global ger_id
+        global ger_level
+        global ger_rank
+        ger_base_attirbute = tk.Toplevel()
+        ger_base_attirbute.title('精灵基础属性')
+        ger_base_attirbute.geometry('1000x500')
+        tk.Label(ger_base_attirbute,text="请输入精灵ID：", justify= tk.LEFT,font=("KaiTi", 10)).place(x=80,y=20)
+        tk.Label(ger_base_attirbute,text="精灵名字：", justify= tk.LEFT,font=("KaiTi", 10)).place(x=500,y=20)
+        tk.Label(ger_base_attirbute,text="请输入精等级：", justify= tk.LEFT,font=("KaiTi", 10)).place(x=80,y=120)
+        tk.Label(ger_base_attirbute,text="请输入精灵品阶：", justify= tk.LEFT,font=("KaiTi", 10)).place(x=80,y=220)
+        ger_id = tk.Entry(ger_base_attirbute,justify= tk.LEFT,font=("KaiTi", 10),width=46)
+        ger_level  = tk.Entry(ger_base_attirbute,justify= tk.LEFT,font=("KaiTi",10),width=46)
+        ger_rank = tk.Entry(ger_base_attirbute,justify= tk.LEFT,font=("KaiTi", 10),width=46)
+        ger_id.pack
+        ger_level.pack
+        ger_rank.pack
+        ger_id.place(x=180,y=20,width=300, height=25)
+        ger_level.place(x=180,y=120,width=300, height=25)
+        ger_rank.place(x=180,y=220,width=300, height=25)
+
+
+    def ger_intellgence_attribute(self):
+        pass
+
+if __name__ == "__main__":
+    ger = tk.Tk()
+    ger.title("精灵属性计算")
+    ger.geometry('920x680')
+    image_file = tk.PhotoImage(file=r'C:\Users\1\Desktop\demo\assets\login.gif')
+    image = tk.Label(ger,image = image_file,justify= tk.LEFT,compound=tk.CENTER)
+    image.pack()
+    #l = tk.Label(ger,text='MONG',background='green',font=('Arial',12),width=12,height=2)
+    #l.pack()
+    ger_cal = ger_Calculation(master=ger)
+    ger_cal.main_windows()
+    ger.mainloop()
+
+    
