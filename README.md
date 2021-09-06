@@ -1,0 +1,2 @@
+# ger_attribute_calucation
+使用可视化界面计算精灵属性
